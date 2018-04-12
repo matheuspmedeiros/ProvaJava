@@ -10,10 +10,10 @@ package br.etec.prova.view;
 
 public class AssalariadoExec {
 	public static void main (String args[]) {
-		Assalariado empregado = new Assalariado();
+		Assalariado assalariado = new Assalariado();
 		try {	
 		
-			empregado.setSalario("Matheus");
+			assalariado.setSalario("Matheus");
 			
 			
 			
@@ -21,7 +21,7 @@ public class AssalariadoExec {
 			EmpregadoJdbcDao EmpregadoJdbcDao = new EmpregadoJdbcDao(connection);
 			
 			
-				EmpregadoJdbcDao.salvar(empregado);
+				AssalariadoJdbcDao.salvar(assalariado);
 				EmpregadoJdbcDao.listar();
 		}
 		catch (Exception e) {
