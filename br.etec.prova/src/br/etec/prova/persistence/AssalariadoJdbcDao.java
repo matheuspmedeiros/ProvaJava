@@ -19,20 +19,20 @@ public class AssalariadoJdbcDao {
 	}
 
 	public void salvar(Assalariado c) throws SQLException {
-		String sql = "insert into assalariado(Salario ) values ('"+c.getSalario()+"')";
+		String sql = "insert into assalariado(salario ) values ('"+c.getSalario()+"')";
 		System.out.println(sql);
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
         prepareStatement.close();
 	}
 	public void listar1() {
-		String sql = "select * from Assalariado";
+		String sql = "select * from assalariado";
         System.out.println(sql);
         
 	}
         
 		public List<Assalariado> listar() {
-			String sql = "select * from Assalariado";
+			String sql = "select * from assalariado";
 	        System.out.println(sql);
 		List<Assalariado> Assalariado = new ArrayList<Assalariado>();
 		try {
@@ -57,6 +57,30 @@ public class AssalariadoJdbcDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		/*public void alterar(Assalariado c) throws SQLException {
+			String sql = "update tb_clientes set nome='"+c.getNome()+"',endereco='"+c.getEndereco()+"',fone='"+c.getFone()+"',email='"+c.getEmail()+"' where id_cliente='"+c.getId_cliente()+"';";
+			System.out.println(sql);
+			PreparedStatement prepareStatement;
+			try {
+				prepareStatement = this.conn.prepareStatement(sql);
+				prepareStatement.executeUpdate();
+	            prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}		
+		}
+		
+		public void excluir(int id) {
+			String sql = "delete from tb_clientes where id_cliente='"+id+"';";
+			System.out.println(sql);
+	        try {
+	    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+	    		prepareStatement.executeUpdate();
+				prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}             */   		
+		
 		return Assalariado;
 	}
 }
