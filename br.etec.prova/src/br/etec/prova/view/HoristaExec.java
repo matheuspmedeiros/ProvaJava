@@ -21,8 +21,10 @@ public class HoristaExec {
 			HoristaJdbcDao horistaJdbcDao = new HoristaJdbcDao(connection);
 			
 			
-			horistaJdbcDao.salvar(horista);
-			horistaJdbcDao.listar();
+		//	horistaJdbcDao.salvar(horista);
+		//	horistaJdbcDao.listar();
+		//	horistaJdbcDao.alterar(horista);
+			horistaJdbcDao.excluir(1);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

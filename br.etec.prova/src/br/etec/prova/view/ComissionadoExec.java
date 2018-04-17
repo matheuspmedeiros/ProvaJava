@@ -22,6 +22,8 @@ public class ComissionadoExec {
 			
 				ComissionadoJdbcDao.salvar(comissionado);
 				ComissionadoJdbcDao.listar();
+				ComissionadoJdbcDao.alterar(comissionado);
+				ComissionadoJdbcDao.excluir(1);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

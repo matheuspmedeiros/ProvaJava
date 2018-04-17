@@ -22,6 +22,9 @@ public class ConexaoView {
 			
 				EmpregadoJdbcDao.salvar(empregado);
 				EmpregadoJdbcDao.listar();
+				EmpregadoJdbcDao.alterar(empregado);
+				EmpregadoJdbcDao.excluir(1);
+				
 		}
 		catch (Exception e) {
 			e.printStackTrace();

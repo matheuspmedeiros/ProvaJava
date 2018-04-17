@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.etec.prova.model.Assalariado;
 import br.etec.prova.model.Comissionado;
 
 public class ComissionadoJdbcDao {
@@ -17,7 +18,7 @@ public class ComissionadoJdbcDao {
 	}
 
 	public void salvar(Comissionado c) throws SQLException {
-		String sql = "insert into comissionado(total_vendas,taxa_comissao ) values ('"+c.getTotal_vendas()+ "','" + c.getTaxa_Comissionado()+"')";
+		String sql = "insert into comissionado(Total_vendas,Taxa_comissao ) values ('"+c.getTotal_vendas()+ "','" + c.getTaxa_Comissionado()+"')";
 		System.out.println(sql);
 		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
 		prepareStatement.executeUpdate();
@@ -56,5 +57,29 @@ public class ComissionadoJdbcDao {
 			e.printStackTrace();
 		}
 		return comissionado;
+		}
+		public void alterar(Comissionado c) throws SQLException {
+			String sql = "update comissionado set Total_vendas='"+c.getTotal_vendas()+"',Taxa_comissionado='"+c.getTaxa_Comissionado()+"'where id_comissionado='"+c.getId_comissionado()+"';";
+			System.out.println(sql);
+			PreparedStatement prepareStatement;
+			try {
+				prepareStatement = this.conn.prepareStatement(sql);
+				prepareStatement.executeUpdate();
+	            prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}		
+		}
+		
+		public void excluir(int id) {
+			String sql = "delete from comissionado where id_comissionado='"+id+"';";
+			System.out.println(sql);
+	        try {
+	    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+	    		prepareStatement.executeUpdate();
+				prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}             		
 		}
 }

@@ -62,4 +62,28 @@ public class EmpregadoJdbcDao {
 		}
 		return empregados;
 	}
+		public void alterar(Empregado c) throws SQLException {
+			String sql = "update empregado set nome='"+c.getNome()+"',sobrenome='"+c.getSobrenome()+"',CPF='"+c.getCPF()+"'where id_empregado='"+c.getId_empregado()+"';";
+			System.out.println(sql);
+			PreparedStatement prepareStatement;
+			try {
+				prepareStatement = this.conn.prepareStatement(sql);
+				prepareStatement.executeUpdate();
+	            prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}		
+		}
+		
+		public void excluir(int id) {
+			String sql = "delete from comissionado where id_comissionado='"+id+"';";
+			System.out.println(sql);
+	        try {
+	    		PreparedStatement prepareStatement = this.conn.prepareStatement(sql);
+	    		prepareStatement.executeUpdate();
+				prepareStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}             		
+		}
 }
